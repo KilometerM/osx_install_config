@@ -48,7 +48,7 @@ then
 else
     echo "installing config file from github..."
     echo ''
-    curl https://raw.githubusercontent.com/tiiiecherle/osx_install_config/master/_config_file/"$SHELL_SCRIPTS_CONFIG_FILE".sh -o "$SHELL_SCRIPTS_CONFIG_FILE_INSTALL_PATH"
+    curl https://raw.githubusercontent.com/KilometerM/osx_install_config/master/_config_file/"$SHELL_SCRIPTS_CONFIG_FILE".sh -o "$SHELL_SCRIPTS_CONFIG_FILE_INSTALL_PATH"
     if [[ $? -eq 0 ]]; then SUCCESSFULLY_INSTALLED="yes"; else SUCCESSFULLY_INSTALLED="no"; fi
 fi
 
