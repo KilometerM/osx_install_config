@@ -418,8 +418,8 @@ then
     PATH_TO_APPS="/etc"
 else
     # macos versions 10.15 and up
-    PATH_TO_SYSTEM_APPS="/etc"
-    PATH_TO_APPS="/etc"
+    PATH_TO_SYSTEM_APPS="/System/Applications"
+    PATH_TO_APPS="/System/Volumes/Data/Applications"
 fi
 
 
