@@ -414,12 +414,12 @@ VERSION_TO_CHECK_AGAINST=10.14
 if [[ $(env_convert_version_comparable "$MACOS_VERSION_MAJOR") -le $(env_convert_version_comparable "$VERSION_TO_CHECK_AGAINST") ]]
 then
     # macos versions until and including 10.14
-    PATH_TO_SYSTEM_APPS="/Applications"
-    PATH_TO_APPS="/Applications"
+    PATH_TO_SYSTEM_APPS="/etc"
+    PATH_TO_APPS="/etc"
 else
     # macos versions 10.15 and up
-    PATH_TO_SYSTEM_APPS="/System/Applications"
-    PATH_TO_APPS="/System/Volumes/Data/Applications"
+    PATH_TO_SYSTEM_APPS="/etc"
+    PATH_TO_APPS="/etc"
 fi
 
 
