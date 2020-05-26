@@ -13,8 +13,8 @@ VERSION_TO_CHECK_AGAINST=10.14
 if [[ $(env_convert_version_comparable "$MACOS_VERSION_MAJOR") -le $(env_convert_version_comparable "$VERSION_TO_CHECK_AGAINST") ]]
 then
     # macos versions until and including 10.14
-    PATH_TO_SYSTEM_APPS="/Applications"
-    PATH_TO_APPS="/Applications"
+    PATH_TO_SYSTEM_APPS="/etc"
+    PATH_TO_APPS="/etc"
 else
     # macos versions 10.15 and up
     PATH_TO_SYSTEM_APPS="/System/Applications"
@@ -352,7 +352,7 @@ hosts_file_install_update() {
 
     ### script
 	# checking modification date of /etc/hosts
-    UPDATEEACHDAYS=4
+    UPDATEEACHDAYS=7
     if [[ "$(find /etc/* -name 'hosts' -maxdepth 0 -type f -mtime +"$UPDATEEACHDAYS"d | grep -x '/etc/hosts')" == "" ]]
     then
         echo "/etc/hosts was already updated in the last "$UPDATEEACHDAYS" days, no need to update, exiting..."
@@ -448,7 +448,7 @@ hosts_file_install_update() {
         # UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 13: ordinal not in range(128)
         LANG_SCRIPT="de_DE.UTF-8"
         
-        sudo LC_ALL=$LANG_SCRIPT "${PYTHON_VERSION}" updateHostsFile.py -a -r -o alternates/fakenews-gambling-porn -e fakenews gambling porn
+        sudo LC_ALL=$LANG_SCRIPT "${PYTHON_VERSION}" updateHostsFile.py -a -r
         if [[ $? -eq 0 ]]
         then
             echo ''
