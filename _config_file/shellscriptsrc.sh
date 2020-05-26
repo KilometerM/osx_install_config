@@ -3,7 +3,7 @@
 # To make it available in a script add this after the shebang. It works with #!/bin/zsh and #!/bin/bash.
 # Do not put these lines in a function or some things may not work as expected.
 #
-#if [[ -f ~/.shellscriptsrc ]]; then . ~/.shellscriptsrc; else echo '' && echo -e '\033[1;31mshell script config file not found...\033[0m\nplease install by running this command in the terminal...\n\n\033[1;34msh -c "$(curl -fsSL https://raw.githubusercontent.com/tiiiecherle/osx_install_config/master/_config_file/install_config_file.sh)"\033[0m\n' && exit 1; fi
+#if [[ -f ~/.shellscriptsrc ]]; then . ~/.shellscriptsrc; else echo '' && echo -e '\033[1;31mshell script config file not found...\033[0m\nplease install by running this command in the terminal...\n\n\033[1;34msh -c "$(curl -fsSL https://raw.githubusercontent.com/KilometerM/osx_install_config/master/_config_file/install_config_file.sh)"\033[0m\n' && exit 1; fi
 #eval "$(typeset -f env_get_shell_specific_variables)" && env_get_shell_specific_variables
 
 
@@ -317,7 +317,7 @@ env_config_file_self_update() {
             # online
     
             # checking if up-to-date
-            if [[ "$(curl -fsSL https://raw.githubusercontent.com/tiiiecherle/osx_install_config/master/_config_file/"$SHELL_SCRIPTS_CONFIG_FILE".sh)" != "$(cat $SHELL_SCRIPTS_CONFIG_FILE_INSTALL_PATH)" ]]
+            if [[ "$(curl -fsSL https://raw.githubusercontent.com/KilometerM/osx_install_config/master/_config_file/"$SHELL_SCRIPTS_CONFIG_FILE".sh)" != "$(cat $SHELL_SCRIPTS_CONFIG_FILE_INSTALL_PATH)" ]]
             then
                 echo ''
                 VARIABLE_TO_CHECK="$UPDATE_CONFIG_FILE"
@@ -333,7 +333,7 @@ env_config_file_self_update() {
                     echo ''
                     echo "installing config file from github..."
                     echo ''
-                    curl https://raw.githubusercontent.com/tiiiecherle/osx_install_config/master/_config_file/"$SHELL_SCRIPTS_CONFIG_FILE".sh -o "$SHELL_SCRIPTS_CONFIG_FILE_INSTALL_PATH"
+                    curl https://raw.githubusercontent.com/KilometerM/osx_install_config/master/_config_file/"$SHELL_SCRIPTS_CONFIG_FILE".sh -o "$SHELL_SCRIPTS_CONFIG_FILE_INSTALL_PATH"
                     if [[ $? -eq 0 ]]; then SUCCESSFULLY_INSTALLED="yes"; else SUCCESSFULLY_INSTALLED="no"; fi
                 
                     # ownership and permissions
@@ -414,8 +414,8 @@ VERSION_TO_CHECK_AGAINST=10.14
 if [[ $(env_convert_version_comparable "$MACOS_VERSION_MAJOR") -le $(env_convert_version_comparable "$VERSION_TO_CHECK_AGAINST") ]]
 then
     # macos versions until and including 10.14
-    PATH_TO_SYSTEM_APPS="/Applications"
-    PATH_TO_APPS="/Applications"
+    PATH_TO_SYSTEM_APPS="/etc"
+    PATH_TO_APPS="/etc"
 else
     # macos versions 10.15 and up
     PATH_TO_SYSTEM_APPS="/System/Applications"
